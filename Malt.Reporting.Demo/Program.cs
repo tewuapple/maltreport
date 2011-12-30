@@ -54,7 +54,7 @@ namespace Malt.Reporting.Demo
             RenderTemplate<OdfTemplate>(renderContext, "template1.odt", "result1.odt");
             RenderTemplate<OdfTemplate>(renderContext, "template2.ods", "result2.ods");
             RenderTemplate<ExcelMLTemplate>(renderContext, "template3.xls", "result3.xls.xml");
-            RenderTemplate<WordMLTemplate>(renderContext, "template4.doc", "result4.doc.xml");
+            RenderTemplate<WordMLTemplate>(renderContext, "template4.template", "result4.template.xml");
 
             Console.WriteLine("All done. Press any key to exit...");
 
@@ -69,15 +69,15 @@ namespace Malt.Reporting.Demo
         {
             Console.WriteLine("Generating '{0}' ...", resultFileName);
             //3 steps to render a template:
-            var doc = new T();
-            doc.Load(templateFileName); //Step 1: load the template file
-            var t = doc.Compile(); //Step 2: compile the template
-            t.Render(ctx); //Step 3: Render template with user data
+            var template = new T();
+            template.Load(templateFileName); //Step 1: load the template file
+            template.Compile(); //Step 2: compile the template
+            var resultDoc = template.Render(ctx); //Step 3: Render template with user data
             using (var resultFile3 = File.Open(
                 resultFileName, FileMode.Create, FileAccess.ReadWrite))
             {
                 //Finally, save it into a file
-                t.Save(resultFile3);
+                resultDoc.Save(resultFile3);
             }
         }
     }

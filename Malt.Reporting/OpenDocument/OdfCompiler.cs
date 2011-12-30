@@ -21,13 +21,10 @@ namespace Malt.Reporting.OpenDocument
 		private static readonly Regex HyperLinkValuePattern =
             new Regex (@"^rtl://(.*)\s*$");
 
-		public static ITemplate Compile (OdfTemplate doc)
+		public static void Compile (OdfTemplate template)
 		{
-			var t = new OdfTemplate ();
-			doc.CopyTo (t);
-
 			var xml = new XmlDocument ();
-			t.ReadMainContentXml (xml);
+			template.ReadMainContentXml (xml);
 			var nsmanager = new OdfNamespaceManager (xml.NameTable);
 			nsmanager.LoadOpenDocumentNamespaces ();
 
@@ -37,9 +34,7 @@ namespace Malt.Reporting.OpenDocument
 			//第2遍，处理表格循环
 			ProcessTableRows (xml, nsmanager);
 
-			t.WriteXmlContent (xml);
-
-			return t;
+			template.WriteXmlContent (xml);
 		}
 
         #region Compiler Methods
