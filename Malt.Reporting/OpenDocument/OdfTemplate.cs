@@ -238,7 +238,8 @@ namespace Malt.Reporting.OpenDocument
 
             this.ResetTextEngine(userImages, this);
 
-            var resultDoc = (OdfTemplate)this.Clone();
+            var resultDoc = new OdfTemplate();
+            this.CopyTo(resultDoc);
 
             using (var inStream = this.GetEntryInputStream(this.MainContentEntryPath))
             using (var reader = new StreamReader(inStream, Encoding.UTF8))

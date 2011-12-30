@@ -54,7 +54,7 @@ namespace Malt.Reporting.Demo
             RenderTemplate<OdfTemplate>(renderContext, "template1.odt", "result1.odt");
             RenderTemplate<OdfTemplate>(renderContext, "template2.ods", "result2.ods");
             RenderTemplate<ExcelMLTemplate>(renderContext, "template3.xls", "result3.xls.xml");
-            RenderTemplate<WordMLTemplate>(renderContext, "template4.template", "result4.template.xml");
+            RenderTemplate<WordMLTemplate>(renderContext, "template4.doc", "result4.doc.xml");
 
             Console.WriteLine("All done. Press any key to exit...");
 
