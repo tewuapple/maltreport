@@ -58,7 +58,7 @@ namespace Malt.Reporting.OfficeXml
                 this.engine.Evaluate(context, reader, writer);
                 writer.Flush();
                 ws.Flush();
-                var resultDoc = new WordMLTemplate();
+                var resultDoc = new ExcelMLTemplate();
                 resultDoc.PutBuffer(ws.ToArray());
                 return resultDoc;
             }

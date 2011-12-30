@@ -29,7 +29,7 @@ namespace Malt.Reporting.OfficeXml
             };
 
             var result = TemplateTestHelper.RenderTemplate<WordMLTemplate>(
-                @"resources/word2003xml_docs/template_reference_replacement.xml", ctx);
+                @"resources/word2003xml_docs/template_reference_replacement.doc", ctx);
 
             var xmldoc = TemplateTestHelper.GetlXmlDocument((WordMLTemplate)result);
             xmldoc.ShouldBeWellFormedWordML();
@@ -49,7 +49,7 @@ namespace Malt.Reporting.OfficeXml
             };
 
             var result = TemplateTestHelper.RenderTemplate<WordMLTemplate>(
-                @"resources/word2003xml_docs/template_escape_url.xml", ctx);
+                @"resources/word2003xml_docs/template_escape_url.doc", ctx);
 
             var xmldoc = TemplateTestHelper.GetlXmlDocument((WordMLTemplate)result);
             xmldoc.ShouldBeWellFormedWordML();

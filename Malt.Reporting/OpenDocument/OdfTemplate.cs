@@ -234,12 +234,12 @@ namespace Malt.Reporting.OpenDocument
                 throw new ArgumentNullException("context");
             }
 
-            var userImages = new Dictionary<Image, string>();
-
-            this.ResetTextEngine(userImages, this);
-
             var resultDoc = new OdfTemplate();
             this.CopyTo(resultDoc);
+
+            var userImages = new Dictionary<Image, string>();
+
+            this.ResetTextEngine(userImages, resultDoc);
 
             using (var inStream = this.GetEntryInputStream(this.MainContentEntryPath))
             using (var reader = new StreamReader(inStream, Encoding.UTF8))
