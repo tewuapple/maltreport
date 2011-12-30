@@ -243,7 +243,7 @@ namespace Malt.Reporting.OpenDocument
 
             using (var inStream = this.GetEntryInputStream(this.MainContentEntryPath))
             using (var reader = new StreamReader(inStream, Encoding.UTF8))
-            using (var ws = this.GetEntryOutputStream(resultDoc.MainContentEntryPath))
+            using (var ws = resultDoc.GetEntryOutputStream(resultDoc.MainContentEntryPath))
             using (var writer = new StreamWriter(ws))
             {
                 this.engine.Evaluate(context, reader, writer);

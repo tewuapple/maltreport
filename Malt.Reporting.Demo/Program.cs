@@ -39,10 +39,11 @@ namespace Malt.Reporting.Demo
                 {"orm_employees",
                     new List<Employee>()
                     {
-                        new Employee("John Doe", "Address 1", 22),
-                        new Employee("Sid", "Address 2", 27),
-                        new Employee("Squeeze", "Address 3", 33),
-                        new Employee("Lenny", "Address 4", 19),
+                        new Employee("Micheal Scott", "Address 1", 22),
+                        new Employee("Andy Bernard", "Address 3", 33),
+                        new Employee("Dwight Shurte", "Address 1", 22),
+                        new Employee("Jim Halpert", "Address 2", 27),
+                        new Employee("Pam Beesly", "Address 4", 19),
                     }
                 },
 

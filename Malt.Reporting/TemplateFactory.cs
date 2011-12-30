@@ -13,7 +13,7 @@ namespace Malt.Reporting
             new Dictionary<string, Func<ITemplate>>()
             {
                 { "xls", () => new OfficeXml.ExcelMLTemplate() },
-                { "template", () => new OfficeXml.ExcelMLTemplate() },
+                { "doc", () => new OfficeXml.WordMLTemplate() },
                 { "odt", () => new OpenDocument.OdfTemplate() },
                 { "ods", () => new OpenDocument.OdfTemplate() },
             };
@@ -22,7 +22,15 @@ namespace Malt.Reporting
         {
             var extensionName = Path.GetExtension(path);
             extensionName = extensionName.ToLowerInvariant();
-            return ExtensionCreatorMapping[extensionName]();
+            Func<ITemplate> proc = null;
+            if (ExtensionCreatorMapping.TryGetValue(extensionName, out proc))
+            {
+                return proc();
+            }
+            else
+            {
+                throw new NotSupportedException("Unsupported extension name: " + extensionName);
+            }
         }
 
     }

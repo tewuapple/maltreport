@@ -19,7 +19,8 @@ namespace Malt.Reporting.OfficeXml
     public sealed class WordMLTemplateTest
     {
 
-        [Test(Description = "测试 Word 2003 Xml 的简单引用替换")]
+        [Ignore]
+        //[Test]
         public void TestReferenceReplacement()
         {
             var ctx = new Dictionary<string, object>() {
